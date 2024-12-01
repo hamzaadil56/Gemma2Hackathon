@@ -1,6 +1,6 @@
 import streamlit as st
 import random
-
+from main import perform_rag_query
 # Set page configuration
 st.set_page_config(page_title="AI Chatbot", page_icon=":robot:")
 
@@ -40,7 +40,8 @@ for message in st.session_state.messages:
 # Generate and display AI response for the latest user message
 if st.session_state.messages and st.session_state.messages[-1]["role"] == "user":
     with st.chat_message("assistant"):
-        response = generate_response(st.session_state.messages[-1]["content"])
+        response = perform_rag_query(
+            "./gemma_hackathon/AllStatus.csv", st.session_state.messages[-1]["content"])
         st.write(response)
         st.session_state.messages.append(
             {"role": "assistant", "content": response})
