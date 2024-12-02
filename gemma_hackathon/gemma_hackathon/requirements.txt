@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-groq
+pandas
+langchain-text-splitters
+langchain-chroma
+langchain-huggingface
+python-dotenv
+streamlit
+faiss-cpu
