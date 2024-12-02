@@ -157,7 +157,7 @@ for message in st.session_state.messages:
 if st.session_state.messages and st.session_state.messages[-1]["role"] == "user":
     with st.chat_message("assistant"):
         response = perform_rag_query(
-            "./gemma_hackathon/AllStatus.csv", st.session_state.messages[-1]["content"])
+            "./AllStatus.csv", st.session_state.messages[-1]["content"])
         st.write(response)
         st.session_state.messages.append(
             {"role": "assistant", "content": response})
